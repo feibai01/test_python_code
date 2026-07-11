@@ -44,4 +44,9 @@ with open(filePath, "rb") as imageFile:
 # 设置邮件附件：使用类MIMEImage，创建一个实例对象attachment
 attachment = MIMEImage(fileContent)
 # 调用add_header()方法，设置附件标题
-attachment.add_header("Content-Disposition", "attachment", filename="团队合照.png")
+attachment.add_header("Content-Disposition", "attachment", filename="大头照.png")
+
+# 发送邮件：使用对象qqMail的sendmail方法发送邮件
+qqMail.sendmail(sender, receiver, message.as_string())
+# 输出"发送成功"
+print("发送成功")
