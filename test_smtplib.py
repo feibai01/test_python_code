@@ -31,7 +31,7 @@ message["From"] = Header(f"feibai<{sender}>")
 message["To"] = Header(f"Π<{receiver}>")
 
 # 设置邮件的内容，赋值给变量textContent
-textContent = "feibai，这是插画同学绘制的团队合照，望查收~"
+textContent = "feibai，插图，望查收~"
 # 编辑邮件正文：使用类MIMEText，创建一个实例对象mailContent
 mailContent = MIMEText(textContent, "plain", "utf-8")
 
@@ -45,6 +45,10 @@ with open(filePath, "rb") as imageFile:
 attachment = MIMEImage(fileContent)
 # 调用add_header()方法，设置附件标题
 attachment.add_header("Content-Disposition", "attachment", filename="大头照.png")
+
+# 添加正文和附件
+message.attach(mailContent)
+message.attach(attachment)
 
 # 发送邮件：使用对象qqMail的sendmail方法发送邮件
 qqMail.sendmail(sender, receiver, message.as_string())
