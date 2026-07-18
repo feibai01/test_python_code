@@ -41,6 +41,18 @@
 #kindDict["驴"]=num2
 #print(kindDict)
 
+#“红鲤鱼与绿鲤鱼与驴”这句话中，到底几条鱼几头驴呢？[2.0]
+# 定义红鲤鱼与绿鲤鱼与驴列表
+word = ["红","鲤","鱼","与","绿","鲤","鱼","与","驴"]
+#定义鱼和驴的字典
+kindDict={"鱼":0,"驴":0}
+#用for循环遍历列表word
+for item in word:
+    #判断item是否为"鱼"或"驴"
+    if item=="鱼" or item=="驴":
+        #如果是，则字典对应值加一
+        kindDict[item]=kindDict[item]+1
+print(kindDict)
 
     
     
