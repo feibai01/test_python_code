@@ -49,10 +49,14 @@ data = data.set_index("订单日期")
 #接下来，就可以对销售额完成分组、重采样和聚合操作。
 #先对data["销售额"]使用groupby()函数，按照data["年份"]进行分组，这样最后的结果里就只会有销售额，不包含其它无关信息，比如订单量等。
 #再按月（"M"）进行重采样，最后求和。
+#新版 Pandas 中，resample("M") 写法已被废弃，不再支持，按月重采样需要改用 ME（MonthEnd，月末聚合）；
+#同理: MS = MonthStart（月初）旧版简写 M 被移除，是版本迭代带来的语法变动。
+
 # TODO 使用groupby()、resample()和sum()函数
 # 计算每年每个月的销售额总和
 # 将结果赋值给变量groupByMonth
-groupByMonth=data["销售额"].groupby(data["年份"]).resample("M").sum()
+
+groupByMonth=data["销售额"].groupby(data["年份"]).resample("ME").sum()
 
 # 输出groupByMonth
 print(groupByMonth)
