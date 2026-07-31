@@ -59,7 +59,16 @@ data = data.set_index("订单日期")
 groupByMonth=data["销售额"].groupby(data["年份"]).resample("ME").sum()
 
 # 输出groupByMonth
-print(groupByMonth)
+#print(groupByMonth)
 
 # 输出data
 #print(data)
+
+# 依次提取2018、2019、2020和2021对应的销售额数据
+year_2018 = groupByMonth.loc[2018]
+year_2019 = groupByMonth.loc[2019]
+year_2020 = groupByMonth.loc[2020]
+year_2021 = groupByMonth.loc[2021]
+
+# 使用print()输出变量year_2021
+print(year_2021)
