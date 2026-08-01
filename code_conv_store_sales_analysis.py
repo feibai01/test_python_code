@@ -71,4 +71,44 @@ year_2020 = groupByMonth.loc[2020]
 year_2021 = groupByMonth.loc[2021]
 
 # 使用print()输出变量year_2021
-print(year_2021)
+#print(year_2021)
+
+# 导入matplotlib.pyplot，并使用"plt"作为该模块的简写
+import matplotlib.pyplot as plt
+
+# 通过给 plt.rcParams["font.sans-serif"] 赋值
+# 将字体设置为 Arial Unicode MS 
+plt.rcParams["font.sans-serif"] = "Arial Unicode MS"
+
+# 依次将year_2018、year_2019、year_2020的index转换为"月"的格式
+year_2018.index = year_2018.index.strftime("%m")
+year_2019.index = year_2019.index.strftime("%m")
+year_2020.index = year_2020.index.strftime("%m")
+# TODO 使用strftime()函数，将year_2021.index转换为指定格式
+year_2021.index = year_2021.index.strftime("%m")
+
+# 使用plt.plot()函数
+# 以year_2018.index为x轴的值和以year_2018.values为y轴的值
+# "2018"作为图例，绘制展现2018年每月销售额的折线图
+plt.plot(year_2018.index,year_2018.values,label="2018")
+
+# 使用plt.plot()函数
+# 以year_2019.index为x轴的值和以year_2019.values为y轴的值
+# "2019"作为图例，绘制展现2019年每月销售额的折线图
+plt.plot(year_2019.index,year_2019.values,label="2019")
+
+# 使用plt.plot()函数
+# 以year_2020.index为x轴的值和以year_2020.values为y轴的值
+# "2020"作为图例，绘制展现2020年每月销售额的折线图
+plt.plot(year_2020.index,year_2020.values,label="2020")
+
+# TODO 使用plt.plot()函数
+# 以year_2021.index为x轴的值和以year_2021.values为y轴的值
+# "2021"作为图例，绘制展现2021年每月销售额的折线图
+plt.plot(year_2021.index,year_2021.values,label="2021")
+
+# TODO 使用plt.legend()函数显示图例
+plt.legend()
+
+# 使用plt.show()函数显示图像
+plt.show()
