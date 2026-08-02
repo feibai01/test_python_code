@@ -108,7 +108,16 @@ plt.plot(year_2020.index,year_2020.values,label="2020")
 plt.plot(year_2021.index,year_2021.values,label="2021")
 
 # TODO 使用plt.legend()函数显示图例
-plt.legend()
+#plt.legend()
 
 # 使用plt.show()函数显示图像
-plt.show()
+#plt.show()
+
+# TODO 使用groupby()、resample()和sum()函数
+# 计算每个地区每年的销售额总和
+# 将结果赋值给变量groupByArea
+# Pandas 2.x 中，旧版的 "Y" 已被替换为 "YE"（YearEnd）
+groupByArea=data["销售额"].groupby(data["地区"]).resample("YE").sum()
+
+# 输出groupByArea
+print(groupByArea)
