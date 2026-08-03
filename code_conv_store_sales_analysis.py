@@ -120,4 +120,23 @@ plt.plot(year_2021.index,year_2021.values,label="2021")
 groupByArea=data["销售额"].groupby(data["地区"]).resample("YE").sum()
 
 # 输出groupByArea
-print(groupByArea)
+#print(groupByArea)
+
+# 使用unstack()函数将groupByArea按照"订单日期"重新排列
+groupByArea = groupByArea.unstack("订单日期")
+
+# 导入matplotlib.pyplot，并使用"plt"作为该模块的简写
+import matplotlib.pyplot as plt
+
+# 通过给 plt.rcParams["font.sans-serif"] 赋值
+# 将字体设置为 Arial Unicode MS 
+plt.rcParams["font.sans-serif"] = "Arial Unicode MS"
+
+# TODO 将groupByArea变量中columns转换为"%Y"的格式
+groupByArea.columns=groupByArea.columns.strftime("%Y")
+
+# TODO 对groupByArea变量使用plot.bar()函数绘制簇形柱状图
+groupByArea.plot.bar()
+
+# 使用plt.show()函数显示图像
+plt.show()
