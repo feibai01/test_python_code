@@ -133,7 +133,7 @@ import matplotlib.pyplot as plt
 plt.rcParams["font.sans-serif"] = "Arial Unicode MS"
 
 # TODO 将groupByArea变量中columns转换为"%Y"的格式
-groupByArea.columns=groupByArea.columns.strftime("%Y")
+groupByArea.columns=groupByArea.columns.strftime("%YE")
 
 # TODO 对groupByArea变量使用plot.bar()函数绘制簇形柱状图
 groupByArea.plot.bar()
