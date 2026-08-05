@@ -140,7 +140,24 @@ plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Arial", "sans-s
 groupByArea.columns=groupByArea.columns.strftime("%YE")
 
 # TODO 对groupByArea变量使用plot.bar()函数绘制簇形柱状图
-groupByArea.plot.bar()
+#groupByArea.plot.bar()
 
 # 使用plt.show()函数显示图像
-plt.show()
+#plt.show()
+
+'''商品情况分析'''
+# 1. 获取销售额前十的商品类别和子类别
+
+# TODO 使用groupby()、sum()函数
+# 计算每个商品类别下，每个子类别的销售额总和
+# 将结果赋值给变量groupByCate
+groupByCate=data["销售额"].groupby([data["商品类别"],data["子类别"]]).sum()
+
+# TODO 使用sort_values()对groupByCate进行降序排序，并赋值给sortProd
+sortProd=groupByCate.sort_values(ascending=False)
+
+# TODO 使用位置索引和切片，获取销售额前10的商品类别和子类别，并赋值给变量topTen
+topTen=sortProd[0:10]
+
+# TODO 将结果输出
+print(topTen)
