@@ -35,6 +35,7 @@ data["订单日期"]=pd.to_datetime(data["订单日期"])
 # 使用print()输出data["订单日期"]
 #print(data["订单日期"])
 
+#####################################################################
 
 '''销售情况分析'''
 # 1. 分析不同月份销售情况
@@ -145,6 +146,8 @@ groupByArea.columns=groupByArea.columns.strftime("%YE")
 # 使用plt.show()函数显示图像
 #plt.show()
 
+#####################################################################
+
 '''商品情况分析'''
 # 1. 获取销售额前十的商品类别和子类别
 
@@ -154,10 +157,47 @@ groupByArea.columns=groupByArea.columns.strftime("%YE")
 groupByCate=data["销售额"].groupby([data["商品类别"],data["子类别"]]).sum()
 
 # TODO 使用sort_values()对groupByCate进行降序排序，并赋值给sortProd
-sortProd=groupByCate.sort_values(ascending=False)
+#sortProd=groupByCate.sort_values(ascending=False)
 
 # TODO 使用位置索引和切片，获取销售额前10的商品类别和子类别，并赋值给变量topTen
-topTen=sortProd[0:10]
+#topTen=sortProd[0:10]
 
 # TODO 将结果输出
-print(topTen)
+#print(topTen)
+
+#####################################################################
+
+'''用户情况分析'''
+# TODO 使用groupby()、sum()函数
+# 计算每个用户的销售额总和
+# 将结果赋值给变量groupByUser
+groupByUser=data["销售额"].groupby(data["用户ID"]).sum()
+
+# TODO 使用sort_values()对groupByUser进行降序排序，并赋值给sortProd
+sortProd=groupByUser.sort_values(ascending=False)
+
+# TODO 使用位置索引和切片，获取销售额前10的用户
+top=sortProd[0:10]
+
+# TODO 计算便利店总营业额，并赋值给变量sumTurnover
+sumTurnover=data["销售额"].sum()
+
+# TODO 计算消费金额在前10的用户各自消费金额占总销售额的比例，并赋值给变量percentage
+percentage=top/sumTurnover
+
+# TODO 输出占比percentage
+print(percentage)
+
+# 导入matplotlib.pyplot，并使用"plt"作为该模块的简写
+import matplotlib.pyplot as plt
+
+# 通过给 plt.rcParams["font.sans-serif"] 赋值
+# 将字体设置为 Arial Unicode MS 
+plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Arial", "sans-serif"]
+
+# TODO 使用plt.bar()函数
+# 根据percentage变量，绘制柱状图
+plt.bar(percentage.index,percentage.values)
+
+# 使用plt.show()函数显示图像
+plt.show()
