@@ -11,8 +11,8 @@ import pandas as pd
 # 将结果赋值给变量ratings
 ratings=pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\ratings.csv",sep="::",header=None,names=["用户id","电影id","评分","评分时间"],usecols=["用户id","电影id","评分"],engine="python")
 
-# TODO 使用to_csv()函数，将处理好的ratings保存至"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\ratings.csv"，传入参数index = False不将行索引信息写入第一列
-ratings.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\ratings.csv",index=False)
+# TODO 使用to_csv()函数，将处理好的ratings保存至"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\ratings01.csv"，传入参数index = False不将行索引信息写入第一列
+ratings.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\ratings01.csv",index=False)
 
 # 输出查看ratings
 #print(ratings)
@@ -20,8 +20,8 @@ ratings.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\r
 # 读取路径为"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies.csv"的文件
 movies = pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies.csv",usecols = ["电影id","电影名"])
 
-# 将处理好的movies保存至"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies.csv"
-movies.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies.csv",index = False)
+# 将处理好的movies保存至"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies01.csv"
+movies.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\movies01.csv",index = False)
 
 # 输出查看movies
 #print(movies)
