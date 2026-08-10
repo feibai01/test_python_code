@@ -30,4 +30,12 @@ movies.to_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\movie\mo
 movieRatings=pd.merge(ratings,movies)
 
 # 输出查看movieRatings
-print(movieRatings)
+#print(movieRatings)
+
+# 使用pivot_table()函数创建数据透视表
+# 设置行索引index为"电影名"，列索引columns为"用户id"
+# 值values为"评分"，并将结果赋值给userRatings变量
+userRatings = movieRatings.pivot_table(index = "电影名", columns = "用户id", values = "评分") 
+
+# 输出查看透视表userRatings
+print(userRatings)
