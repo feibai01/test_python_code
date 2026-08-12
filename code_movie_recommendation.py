@@ -52,4 +52,17 @@ movieRatings=pd.merge(ratings01,movies01)
 userRatings = movieRatings.pivot_table(index = "电影名", columns = "用户id", values = "评分") 
 
 # 输出查看透视表userRatings
-print(userRatings)
+#print(userRatings)
+
+# 2. 计算用户间的相关系数
+# corr()函数，计算列与列之间非空数据的相关系数
+# method：指定相关性计算方法，可选值包括： 
+#'pearson'：默认方法，适用于线性数据，计算皮尔逊相关系数。 
+#'kendall'：适用于分类变量或无序序列，计算肯德尔相关系数。 
+#'spearman'：适用于非线性或非正态分布数据，计算斯皮尔曼相关系数。
+# min_periods：指定计算相关性所需的最小样本数量。
+
+# 使用corr()函数，计算userRatings的皮尔逊相关系数
+# 传入参数method="pearson"，min_periods=10
+# 将结果赋值给变量corrMatrix
+corrMatrix = userRatings.corr(method="pearson", min_periods=10)   
