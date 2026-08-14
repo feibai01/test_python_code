@@ -65,10 +65,18 @@ userRatings = movieRatings.pivot_table(index = "电影名", columns = "用户id"
 # 使用corr()函数，计算userRatings的皮尔逊相关系数
 # 传入参数method="pearson"，min_periods=10
 # 将结果赋值给变量corrMatrix
+corrMatrix = userRatings.corr(method="pearson", min_periods=10)
+
 
 # 3. 寻找相似用户
 # 3.1 获取「用户1」与其他用户之间的皮尔逊相关系数，并赋值给userCorr
-userCorr = corrMatrix[1]
+userCorr = corrMatrix[1].drop(index=1)
 
 # 输出查看userCorr
-print(userCorr)
+#print(userCorr)
+
+# TODO 3.2 获取最大值对应的索引，并赋值给变量mostCorrUser
+mostCorrUser=userCorr.idxmax()
+
+# 输出查看mostCorrUser
+print(mostCorrUser)
