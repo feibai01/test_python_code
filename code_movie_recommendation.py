@@ -79,4 +79,11 @@ userCorr = corrMatrix[1].drop(index=1)
 mostCorrUser=userCorr.idxmax()
 
 # 输出查看mostCorrUser
-print(mostCorrUser)
+#print(mostCorrUser)
+
+# 4. 筛选可推荐电影
+# 4.1 获取相似用户的电影评分数据
+targetMovie = userRatings[mostCorrUser]
+
+# 输出查看targetMovie
+print(targetMovie)
