@@ -85,5 +85,9 @@ mostCorrUser=userCorr.idxmax()
 # 4.1 获取相似用户的电影评分数据
 targetMovie = userRatings[mostCorrUser]
 
+# 4.2 获取相似用户评分为5的电影
+targetMovie = targetMovie[targetMovie.values==5]
+
+
 # 输出查看targetMovie
 print(targetMovie)
