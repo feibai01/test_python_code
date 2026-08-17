@@ -88,6 +88,9 @@ targetMovie = userRatings[mostCorrUser]
 # 4.2 获取相似用户评分为5的电影
 targetMovie = targetMovie[targetMovie.values==5]
 
+# 4.3 获取目标用户评分过的电影
+user1Ratings = userRatings[1].dropna()
 
-# 输出查看targetMovie
-print(targetMovie)
+
+# 输出查看user1Ratings
+print(user1Ratings)
