@@ -93,4 +93,17 @@ user1Ratings = userRatings[1].dropna()
 
 
 # 输出查看user1Ratings
-print(user1Ratings)
+#print(user1Ratings)
+
+# 4.4 删除目标用户看过的电影
+# 获取相似用户评分为5的电影名称，并赋值给targetName
+targetName = targetMovie.index
+
+# 获取目标用户评分过的电影名称，并赋值给user1Name
+user1Name = user1Ratings.index
+
+# 输出查看targetName
+print(targetName)
+
+# 输出查看user1Name
+print(user1Name)
