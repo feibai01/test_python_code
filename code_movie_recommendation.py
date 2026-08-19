@@ -103,7 +103,13 @@ targetName = targetMovie.index
 user1Name = user1Ratings.index
 
 # 输出查看targetName
-print(targetName)
+#print(targetName)
 
 # 输出查看user1Name
-print(user1Name)
+#print(user1Name)
+
+# 筛选「用户1」未评分过的电影名称
+movieList = targetName[~targetName.isin(user1Name)]
+
+# 输出movieList
+print(movieList)
