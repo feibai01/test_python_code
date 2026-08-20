@@ -112,4 +112,4 @@ user1Name = user1Ratings.index
 movieList = targetName[~targetName.isin(user1Name)]
 
 # 输出movieList
-print(movieList)
+#print(movieList)
