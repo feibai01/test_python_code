@@ -2,4 +2,13 @@ import pandas as pd
 df = pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\user_data\user_data\用户浏览数据.csv")
 
 # TODO 输出df的前5行
-print(df.head())
+#print(df.head())
+
+# for循环遍历df['文章类型']
+for i in df['文章类型']:  
+    
+    # 用split()函数将i的数据拆分，并将返回的列表赋值给article
+    article = i.split(',')
+    
+    # 输出article
+    print(article)
