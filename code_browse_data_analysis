@@ -4,11 +4,20 @@ df = pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\user_
 # TODO 输出df的前5行
 #print(df.head())
 
+# 创建一个空列表articles
+articles = []
+
 # for循环遍历df['文章类型']
 for i in df['文章类型']:  
     
     # 用split()函数将i的数据拆分，并将返回的列表赋值给article
     article = i.split(',')
+
+    # 用append()函数将article添加到空列表articles中
+    articles.append(article)
     
     # 输出article
-    print(article)
+    #print(article)
+
+# 输出articles
+print(articles)
