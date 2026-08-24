@@ -20,4 +20,11 @@ for i in df['文章类型']:
     #print(article)
 
 # 输出articles
-print(articles)
+#print(articles)
+
+# 导入apyori库中的apriori()函数
+from apyori import apriori
+# 用apriori()函数进行关联分析，将获取的关联规则赋值给rules
+rules = apriori(articles,min_support=0.1,min_confidence=0.6)
+# 输出rules
+print(rules)
