@@ -31,5 +31,7 @@ rules = apriori(articles,min_support=0.1,min_confidence=0.6)
 
 # for循环遍历rules
 for rule in rules:
-    # 输出rule
-    print(rule)
+     # TODO 通过属性rule.support获取支持度，赋值给support
+    support=rule.support
+    # TODO 输出support
+    print(support)
