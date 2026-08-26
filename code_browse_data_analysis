@@ -31,18 +31,16 @@ rules = apriori(articles,min_support=0.1,min_confidence=0.6)
 
 # for循环遍历rules
 for rule in rules:
-     # TODO 通过属性rule.support获取支持度，赋值给support
-    support=rule.support
-    # TODO 输出support
-    #print(support)
-     # TODO for循环遍历ordered_statistics对象
+     #  提取支持度，保留3位小数，并赋值给support
+    support = round(rule.support,3)
+    # for循环遍历ordered_statistics对象
     for i in rule.ordered_statistics:
-        # TODO 获取前件和后件，分别赋值给head_set和tail_set
+        # 获取前件和后件，分别赋值给head_set和tail_set
         head_set = i.items_base
         tail_set = i.items_add
-        # TODO 提取置信度，赋值给confidence
-        confidence = i.confidence
-        # TODO 提取提升度，赋值给lift
-        lift =i.lift
+        # 提取置信度，保留3位小数，并赋值给confidence
+        confidence = round(i.confidence,3)
+        # 提取提升度，保留3位小数，并赋值给lift
+        lift = round(i.lift,3)
         # TODO 输出head_set, tail_set, support, confidence, lift
         print(head_set, tail_set, support, confidence, lift)
