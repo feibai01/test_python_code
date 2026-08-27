@@ -38,6 +38,9 @@ for rule in rules:
         # 获取前件和后件，转为列表后，分别赋值给head_set和tail_set
         head_set = list(i.items_base)
         tail_set = list(i.items_add)
+        # 跳过前件为空的数据
+        if head_set == []:
+            continue
         # 提取置信度，保留3位小数，并赋值给confidence
         confidence = round(i.confidence,3)
         # 提取提升度，保留3位小数，并赋值给lift
