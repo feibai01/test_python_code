@@ -29,6 +29,9 @@ rules = apriori(articles,min_support=0.1,min_confidence=0.6)
 # 输出rules
 #print(rules)
 
+# 创建空列表，用于存储关联规则等数据
+extract_result = []
+
 # for循环遍历rules
 for rule in rules:
      #  提取支持度，保留3位小数，并赋值给support
@@ -41,9 +44,17 @@ for rule in rules:
         # 跳过前件为空的数据
         if head_set == []:
             continue
+        # 将前件、后件拼接成关联规则的形式
+        related_category = str(head_set) + '→' + str(tail_set)
         # 提取置信度，保留3位小数，并赋值给confidence
         confidence = round(i.confidence,3)
         # 提取提升度，保留3位小数，并赋值给lift
         lift = round(i.lift,3)
         # TODO 输出head_set, tail_set, support, confidence, lift
-        print(head_set, tail_set, support, confidence, lift)
+        #print(related_category, support, confidence, lift)
+        # 将提取的数据保存到列表extract_result中
+        extract_result.append([related_category, support, confidence, lift])
+# 将数据转成DataFrame的形式，设置列名为'关联规则', '支持度', '置信度', '提升度'，并赋值给rule_data
+rule_data = pd.DataFrame(extract_result, columns=['关联规则', '支持度', '置信度', '提升度'])
+ # 输出rule_data
+print(rule_data)
