@@ -56,5 +56,9 @@ for rule in rules:
         extract_result.append([related_category, support, confidence, lift])
 # 将数据转成DataFrame的形式，设置列名为'关联规则', '支持度', '置信度', '提升度'，并赋值给rule_data
 rule_data = pd.DataFrame(extract_result, columns=['关联规则', '支持度', '置信度', '提升度'])
- # 输出rule_data
-print(rule_data)
+# 输出rule_data
+#print(rule_data)
+# 提取出提升度大于 1 的数据,并赋值给promoted_rules
+promoted_rules = rule_data[rule_data['提升度']>1]
+# 输出promoted_rules
+print(promoted_rules)
