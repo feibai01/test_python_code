@@ -1,5 +1,5 @@
 import pandas as pd 
-df = pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\user_data\user_data\用户浏览数据.csv")
+df = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\user_data\user_data\用户浏览数据.csv")
 
 # TODO 输出df的前5行
 #print(df.head())

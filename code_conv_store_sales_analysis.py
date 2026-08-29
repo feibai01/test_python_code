@@ -2,7 +2,7 @@
 import pandas as pd
 
 '''读取文件'''
-data = pd.read_csv(r"D:\tools\编程\VSCODE\python_vscode\练习所需文件\junjun\store.csv")
+data = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\junjun\junjun\store.csv")
 
 
 '''数据的处理与清洗'''
