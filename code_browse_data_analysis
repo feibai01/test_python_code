@@ -61,4 +61,8 @@ rule_data = pd.DataFrame(extract_result, columns=['关联规则', '支持度', '
 # 提取出提升度大于 1 的数据,并赋值给promoted_rules
 promoted_rules = rule_data[rule_data['提升度']>1]
 # 输出promoted_rules
-print(promoted_rules)
+#print(promoted_rules)
+# 提取出提升度小于 1 的数据,并赋值给restricted_rules
+restricted_rules = rule_data[rule_data['提升度']<1]
+# 输出restricted_rules
+print(restricted_rules)
