@@ -70,7 +70,7 @@ restricted_rules = rule_data[rule_data['提升度']<1]
 # 导入matplotlib.pyplot，并使用"plt"作为该模块的简写
 import matplotlib.pyplot as plt
 # 将字体设置为 Arial Unicode MS 
-plt.rcParams["font.sans-serif"] = "等距更纱黑体 SC"
+plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
 
 # 对promoted_rules变量使用plot.bar()函数绘制指定簇形柱状图
 # '关联规则' 列作为x轴数据，'支持度','置信度' 列作为y轴数据，参数rot=0
