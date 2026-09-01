@@ -74,10 +74,20 @@ plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
 
 # 对promoted_rules变量使用plot.bar()函数绘制指定簇形柱状图
 # '关联规则' 列作为x轴数据，'支持度','置信度' 列作为y轴数据，参数rot=0
-promoted_rules.plot.bar('关联规则',['支持度','置信度'],rot=0)
+#promoted_rules.plot.bar('关联规则',['支持度','置信度'],rot=0)
 
 # 使用plt.title()函数，将图表标题设置为"促进关系的强关联规则"
-plt.title("促进关系的强关联规则")
+#plt.title("促进关系的强关联规则")
+
+# 使用plt.show()函数显示图像
+#plt.show()
+
+# 对restricted_rules变量使用plot.bar()函数绘制指定簇形柱状图
+# '关联规则' 列作为x轴数据，'支持度','置信度' 列作为y轴数据，参数rot=0
+restricted_rules.plot.bar('关联规则',['支持度','置信度'],rot=0)
+
+# 使用plt.title()函数，将图表标题设置为"抑制关系的强关联规则"
+plt.title("抑制关系的强关联规则")
 
 # 使用plt.show()函数显示图像
 plt.show()
