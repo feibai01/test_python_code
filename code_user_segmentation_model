@@ -1,0 +1,11 @@
+# 导入pandas模块，简写为pd
+import pandas as pd
+
+# 读取文件，赋值给df
+df = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\cross_border_ecommerce_platform_user_data\user_info\user_info\user_info.csv")
+
+# 将"last_order_date"这一列，转为时间类型
+df["last_order_date"] = pd.to_datetime(df["last_order_date"])
+
+# 输出df
+print(df)
