@@ -22,4 +22,14 @@ endTime = datetime(2019,4,1)
 df["time_gap"] = endTime - df["last_order_date"]
 
 # 输出time_gap这一列
-print(df["time_gap"])
+#print(df["time_gap"])
+
+# 2.1 对R进行描述性分析
+# 根据time_gap分组聚合，赋值给R
+R = df["time_gap"].groupby(df["time_gap"]).count()
+
+# 计算各部分人数，对应的比例
+R_percent = R / 51394
+
+# 输出R_percent
+print(R_percent)
