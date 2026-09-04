@@ -21,6 +21,10 @@ endTime = datetime(2019,4,1)
 # 将结果添加为df的"time_gap"列
 df["time_gap"] = endTime - df["last_order_date"]
 
+# 通过.dt.days，将"time_gap"列的天数提取出来
+df["time_gap"] = df["time_gap"].dt.days
+
+
 # 输出time_gap这一列
 #print(df["time_gap"])
 
@@ -32,4 +36,18 @@ R = df["time_gap"].groupby(df["time_gap"]).count()
 R_percent = R / 51394
 
 # 输出R_percent
-print(R_percent)
+#print(R_percent)
+
+# 导入matplotlib.pyplot模块，简写为plt
+import matplotlib.pyplot as plt
+
+# 通过给 plt.rcParams["font.sans-serif"] 赋值
+# 将字体设置为 Microsoft YaHei 
+plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
+
+# TODO 使用plt.bar()函数
+# 以R_percent的index为x轴的值，R_percent的values为y轴的值
+plt.bar(R_percent.index,R_percent.values)
+
+# 展示图像
+plt.show()
