@@ -28,6 +28,8 @@ df["time_gap"] = df["time_gap"].dt.days
 # 输出time_gap这一列
 #print(df["time_gap"])
 
+
+'''对R、F、M进行描述性分析'''
 # 2.1 对R进行描述性分析
 # 根据time_gap分组聚合，赋值给R
 R = df["time_gap"].groupby(df["time_gap"]).count()
@@ -39,15 +41,37 @@ R_percent = R / 51394
 #print(R_percent)
 
 # 导入matplotlib.pyplot模块，简写为plt
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # 通过给 plt.rcParams["font.sans-serif"] 赋值
 # 将字体设置为 Microsoft YaHei 
-plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
+#plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
 
 # TODO 使用plt.bar()函数
 # 以R_percent的index为x轴的值，R_percent的values为y轴的值
-plt.bar(R_percent.index,R_percent.values)
+#plt.bar(R_percent.index,R_percent.values)
+
+# 展示图像
+#plt.show()
+
+
+# 2.2 对F进行描述性分析
+# TODO 根据order_count分组聚合，赋值给F
+F = df["order_count"].groupby(df["order_count"]).count()
+
+# TODO 计算各部分人数，对应的比例，赋值给F_percent
+F_percent = F /51394
+
+# 导入matplotlib.pyplot模块，简写为plt
+import matplotlib.pyplot as plt
+
+# 通过给 plt.rcParams["font.sans-serif"] 赋值
+# 将字体设置为Microsoft YaHei 
+plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
+
+# TODO 使用plt.bar()函数
+# 以F_percent的index为x轴的值，F_percent的values为y轴的值
+plt.bar(F_percent.index, F_percent.values)
 
 # 展示图像
 plt.show()
