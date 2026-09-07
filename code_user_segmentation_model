@@ -1,6 +1,8 @@
 # 导入pandas模块，简写为pd
 import pandas as pd
 
+'''获取描绘R、F、M的数据'''
+# 1.1 读取并处理数据集
 # 读取文件，赋值给df
 df = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\cross_border_ecommerce_platform_user_data\user_info\user_info\user_info.csv")
 
@@ -66,14 +68,24 @@ F_percent = F /51394
 
 # 2.3 对M进行描述性分析
 # TODO 根据total_amount分组聚合，赋值给M
-M = df["total_amount"].groupby(df["total_amount"]).count()
+#M = df["total_amount"].groupby(df["total_amount"]).count()
 
 # 计算各部分人数对应的比例，赋值给M_percent
-M_percent = M / 51394
+#M_percent = M / 51394
 
 # 使用plt.bar()函数
 # 以M_percent的index为x轴的值，M_percent的values为y轴的值
-plt.bar(M_percent.index, M_percent.values)
+#plt.bar(M_percent.index, M_percent.values)
+
+# 用show()函数展示图像
+#plt.show()
+
+#由于x轴的区间跨度太大了，导致单一的值展示在图上依然非常不起眼。别说分布情况，连蓝色的柱子都很难从图像里被发现。
+#这时，就可以考虑换一种图像和方式来观察数据的趋势，如直方图。
+
+# TODO 使用plt.hist()函数
+# 将df["total_amount"]这一列数据传入，并传入参数bins =100
+plt.hist(df["total_amount"], bins=100)
 
 # 用show()函数展示图像
 plt.show()
