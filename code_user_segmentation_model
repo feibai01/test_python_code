@@ -33,19 +33,19 @@ df["time_gap"] = df["time_gap"].dt.days
 
 '''对R、F、M进行描述性分析'''
 # 导入matplotlib.pyplot模块，简写为plt
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # 通过给 plt.rcParams["font.sans-serif"] 赋值
 # 将字体设置为 Microsoft YaHei 
-plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
+#plt.rcParams["font.sans-serif"] = "Microsoft YaHei"
 
 
 # 2.1 对R进行描述性分析
 # 根据time_gap分组聚合，赋值给R
-R = df["time_gap"].groupby(df["time_gap"]).count()
+#R = df["time_gap"].groupby(df["time_gap"]).count()
 
 # 计算各部分人数，对应的比例
-R_percent = R / 51394
+#R_percent = R / 51394
 
 # 输出R_percent
 #print(R_percent)
@@ -57,10 +57,10 @@ R_percent = R / 51394
 
 # 2.2 对F进行描述性分析
 # TODO 根据order_count分组聚合，赋值给F
-F = df["order_count"].groupby(df["order_count"]).count()
+#F = df["order_count"].groupby(df["order_count"]).count()
 
 # TODO 计算各部分人数，对应的比例，赋值给F_percent
-F_percent = F /51394
+#F_percent = F /51394
 
 # TODO 使用plt.bar()函数
 # 以F_percent的index为x轴的值，F_percent的values为y轴的值
@@ -85,7 +85,15 @@ F_percent = F /51394
 
 # TODO 使用plt.hist()函数
 # 将df["total_amount"]这一列数据传入，并传入参数bins =100
-plt.hist(df["total_amount"], bins=100)
+#plt.hist(df["total_amount"], bins=100)
 
 # 用show()函数展示图像
-plt.show()
+#plt.show()
+
+'''依次划分R、F、M'''
+# 使用cut()函数，对"time_gap"进行数据分箱
+# 以0,50,100,200,300,365为边界分为5组，将结果添加为df的"R"列
+df["R"] = pd.cut(df["time_gap"], [0,50,100,200,300,365])
+
+# 使用print输出df["R"]
+print(df["R"])
