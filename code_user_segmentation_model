@@ -106,8 +106,8 @@ df["time_gap"] = df["time_gap"].dt.days
 #print(R_value)
 
 # 使用qcut()函数，对"time_gap"进行数据分箱
-# 均分为5组，将结果添加为df的"R"列
-df["R"] = pd.qcut(df["time_gap"],q=5)
+# 均分为5组，区间标记命名为5-1，赋值给df["R"]
+df["R"]=pd.qcut(df["time_gap"],q=5,labels=[5,4,3,2,1])
 
 # 使用value_counts()函数
 # 计算df["R"]每个区间的值，赋值给R_value
@@ -116,6 +116,8 @@ R_value = df["R"].value_counts()
 # 计算各部分人数对应的比例，赋值给R_percent
 R_percent = R_value / 51394
 
+# 使用print输出df["R"]
+print(df["R"])
 # 输出R_value
 print(R_value)
 # 输出R_percent
