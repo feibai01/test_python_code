@@ -144,7 +144,25 @@ df["time_gap"] = df["time_gap"].dt.days
 # 2. 划分F
 # 使用qcut()函数，将"order_count"的数据分箱
 # 均分为5组，区间标记命名为1-5，赋值给df["F"]
-df["F"] = pd.qcut(df["order_count"],q=5,labels=[1,2,3,4,5])
+#df["F"] = pd.qcut(df["order_count"],q=5,labels=[1,2,3,4,5])
 
 # 输出此时的df["F"]
-print(df["F"])
+#print(df["F"])
+
+# 3. 划分M
+# 使用qcut()函数，将"total_amount"的数据分箱
+# 均分为5组，赋值给df["M"]
+df["M"] = pd.qcut(df["total_amount"],q=5)
+
+# 使用value_counts()函数
+# 计算df["M"]每个区间的值，赋值给M_value
+M_value = df["M"].value_counts()
+
+# 计算各部分人数，对应的比例，赋值给M_percent
+M_percent = M_value / 51394
+
+# 输出M_value
+print(M_value)
+
+# 输出M_percent
+print(M_percent)
