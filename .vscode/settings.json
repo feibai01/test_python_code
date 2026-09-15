@@ -1,3 +1,4 @@
 {
+    "python.defaultInterpreterPath": "D:\\tools\\Python3.13\\python.exe",
     "python-envs.defaultEnvManager": "ms-python.python:system"
 }

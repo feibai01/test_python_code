@@ -39,7 +39,7 @@ import pandas as pd
 # 读取并处理路径为r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\movie\movie\ratings01.csv"的数据集，将结果赋值给变量ratings
 ratings01 = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\movie\movie\ratings01.csv")
 # 读取路径为r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\movie\movie\movies01.csv"的数据集，将结果赋值给变量movies
-movies01 = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\movie\movie\movies01.csv")
+movies01 = pd.read_csv(r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice``\movie\movie\movies01.csv")
 # TODO 使用merge()函数将ratings和movies按照电影id这一列连接起来
 movieRatings=pd.merge(ratings01,movies01)
 

@@ -1,0 +1,17 @@
+# TODO 定义一个函数sales()计算销售的销售额，参数为number，price，discount
+def sales(number,price,discount):
+    # TODO 返回销售额，计算方式为number*price*discount
+    return number*price*discount
+# TODO 调用函数计算三位销售的销售额并分别赋值给Amy，Tony，Sandy
+Amy = sales(400,2000,0.8)
+Tony = sales(500,1500,0.7)
+Sandy =sales(600,700,0.9)
+# TODO 创建一个空列表total，用于存储每个销售的销售额  
+total=[]
+# TODO 将三位销售的销售额依次添加进列表total中
+total.append(Amy)
+total.append(Tony)
+total.append(Sandy)
+
+# TODO 输出最高销售额，提示：max函数可以提取列表中的最大值
+print(max(total))
