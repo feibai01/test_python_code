@@ -1,3 +1,5 @@
+# TODO 导入options 模块并简写为opts
+from pyecharts import options as opts
 # TODO 从pyecharts.charts中 导入 Bar模块
 from pyecharts.charts import Bar
 # TODO 创建一个柱状图Bar对象并赋值给变量bar
@@ -25,6 +27,13 @@ for i in range(length):
 bar.add_xaxis(xaxis_data=name)
 # TODO 给柱状图添加y轴数据，数据内容是赞粉比列表：ratioList
 bar.add_yaxis(series_name="赞粉比",y_axis=ratioList)
+# 使用set_global_opts进行标题配置和x轴配置
+# 初始化TitleOpts对象，设置标题名称为"候选博主粉丝与点赞的对比"
+# 设置副标题名称为"筛选博主"
+# TODO 初始化一个AxisOpts对象，设置标签旋转45度
+bar.set_global_opts(title_opts=opts.TitleOpts(title = "候选博主粉丝与点赞的对比",subtitle = "筛选博主"),
+                    xaxis_opts=opts.AxisOpts(axislabel_opts={"rotate":45}))
+
 # TODO 绘制出这条柱状图，并保存到路径"D:\tools\Programming\VSCODE\html_draft\fans_likes.html"
 bar.render(r"D:\tools\Programming\VSCODE\html_draft\fans_likes.html")
 
