@@ -1,0 +1,26 @@
+# 从pyecharts.charts中导入Pie
+from pyecharts.charts import Pie
+
+# TODO 从pyecharts导入options,简称为opts
+from pyecharts import options as opts
+
+# 列表data
+data = [("苹果", 60), ("香蕉", 80), ("核桃", 120)]
+
+# 创建Pie对象赋值给pie
+pie = Pie()
+
+# 使用add()设置饼状图的内容
+# 添加参数series_name，将图例设置为空
+# 添加参数data_pair，将值设置为data
+# 添加参数label_opts，将值设置为opts.LabelOpts
+# TODO 在数据标签配置项中添加参数formatter，将值设置为"{d}%"
+# 添加参数position，将值设置为"inside"
+pie.add(
+    series_name="",
+    data_pair=data,
+    label_opts=opts.LabelOpts(formatter="{d}%",position="inside")
+    )
+
+# 使用render保存饼状图到指定路径
+pie.render(r"D:\tools\Programming\VSCODE\html_draft\pie_basic.html")
