@@ -10,17 +10,55 @@ data = [("苹果", 60), ("香蕉", 80), ("核桃", 120)]
 # 创建Pie对象赋值给pie
 pie = Pie()
 
+###############################################################################
+
 # 使用add()设置饼状图的内容
 # 添加参数series_name，将图例设置为空
 # 添加参数data_pair，将值设置为data
 # 添加参数label_opts，将值设置为opts.LabelOpts
 # TODO 在数据标签配置项中添加参数formatter，将值设置为"{d}%"
 # 添加参数position，将值设置为"inside"
+#pie.add(
+#    series_name="",
+#    data_pair=data,
+#    label_opts=opts.LabelOpts(formatter="{d}%",position="inside")
+#    )
+
+# 使用render保存饼状图到指定路径
+#pie.render(r"D:\tools\Programming\VSCODE\html_draft\pie_basic.html")
+
+###############################################################################
+#环形图也叫做甜甜圈图，从外形来看就像是将饼状图的中间区域挖空。
+#环形图，一方面把饼图的角度判断改为了弧形长度判断；另一方面，有效节约了视觉空间。
+
+# 使用add()设置饼状图的内容
+# 添加参数series_name，将图例设置为空
+# 添加参数data_pair，将值设置为data
+# TODO 添加参数radius，将饼状图的半径设置为["40%","60%"]
+#pie.add(
+#    series_name="",
+#    data_pair=data,
+#    radius=["40%","60%"]
+#    )
+
+# 使用render保存饼状图到指定路径
+#pie.render(r"D:\tools\Programming\VSCODE\html_draft\pie_donut.html")
+
+###############################################################################
+#南丁格尔玫瑰图（以下简称玫瑰图）以半径来反映数值，从视觉上，它会将数据的比例夸大。
+#当我们追求数据的准确性时，玫瑰图不一定是个好的选择。但反过来说，当我们需要对比非常相近的数值时，适当的夸大会有助于分辨。
+
+# 使用add()设置饼状图的内容
+# 添加参数series_name，将图例设置为空
+# 添加参数data_pair，将值设置为data
+# TODO 添加参数rosetype，将参数值设置为"area"
+# 添加参数radius，将饼状图的半径设置为[50, 150]
 pie.add(
     series_name="",
     data_pair=data,
-    label_opts=opts.LabelOpts(formatter="{d}%",position="inside")
+    rosetype="area",
+    radius=[50,150]
     )
 
 # 使用render保存饼状图到指定路径
-pie.render(r"D:\tools\Programming\VSCODE\html_draft\pie_basic.html")
+pie.render(r"D:\tools\Programming\VSCODE\html_draft\pie_Nightingale_rose.html")
