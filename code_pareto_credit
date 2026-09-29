@@ -37,4 +37,4 @@ line.add_yaxis(series_name="原因占比(%)",y_axis=percentList,yaxis_index=1)
 # TODO 对bar使用overlap()函数，传入line，就是在柱状图的基础上叠加折线图
 bar.overlap(line)
 # 绘制出图表credit_company.html
-bar.render(r"D:\tools\Programming\VSCODE\html_draft\credit_company.html")
+bar.render(r"D:\tools\Programming\VSCODE\html_draft\pareto_credit_company.html")
