@@ -1,0 +1,32 @@
+# TODO 使用import导入openpyxl模块
+import openpyxl
+
+# TODO 将文件路径r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\caicai\caicai\table.xlsx"赋值给path
+path=r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\caicai\caicai\table.xlsx"
+
+# TODO 使用openpyxl.load_workbook()读取文件，赋值给wb
+wb=openpyxl.load_workbook(path)
+
+# TODO 获取wb中的"水果销量"工作表, 赋值给ws
+ws=wb["水果销量"]
+
+# TODO 使用for循环遍历2-5行:
+for row in range(2,6): 
+
+    # TODO 创建空列表rowValues用来保存每一行中的数据
+    rowValues=[]
+
+    # TODO 使用ws[]读取每行数据，赋值给rowData
+    rowData=ws[row]
+
+    # TODO 使用for循环遍历rowData的每个元素
+    for item in rowData:
+
+        # TODO 使用.value获取元素的值，赋值给data
+        data=item.value
+
+        # TODO 使用append()将data追加到列表rowValues中
+        rowValues.append(data)
+
+    # TODO 使用print()输出rowValues
+    print(rowValues)
