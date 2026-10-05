@@ -1,0 +1,48 @@
+# 使用import导入openpyxl模块
+import openpyxl
+# 使用import从pyecharts中导入options
+from pyecharts import options as opts
+# 使用import从pyecharts中导入Line
+from pyecharts.charts import Line
+
+# 将文件路径“/Users/caicai/table.xlsx”赋值给path
+path = r"D:\tools\Programming\VSCODE\python_vscode\Files_RequiredforPractice\caicai\caicai\table2.xlsx"
+# 使用openpyxl.load_workbook()读取文件，赋值给wb
+wb = openpyxl.load_workbook(path)
+# 使用wb[]读取"销量"表格, 赋值给ws
+ws = wb["销量"]
+
+# TODO 定义read_row函数用于读取行数据，传入参数row表示行数
+def read_row(row):
+    # TODO 创建一个空的列表data
+    data=[]
+    # TODO 使用for循环遍历ws[row]中的每一个单元格
+    for item in  ws[row]:
+        # TODO 使用.value取单元格的值，使用append()将数据追加到data中
+        data.append(item.value)
+    # TODO 使用return返回data
+    return data
+
+# 使用Line()函数创建对象，赋值给line
+line = Line()
+
+# 使用for循环配合range()，遍历数字1～3
+for row in range(1, 4):
+    # TODO 读取第row行的数据，赋值给row_data变量
+    row_data=read_row(row)
+    # TODO 使用if判断，当row的值为1时
+    if(row==1):
+        # TODO 使用add_xaxis()函数添加x轴的数据，数据为row_data从第二个到末尾的数据
+        line.add_xaxis(xaxis_data=row_data[1:])
+    # row不为1时
+    else:
+        # TODO 将第一个数据row_data[0]传入series_name参数
+        # 将第二至末尾的数据row_data[1:]传入y_axis参数中
+        # 使用add_yaxis()函数添加y轴数据
+        line.add_yaxis(series_name=row_data[0],y_axis=row_data[1:])
+# 使用set_global_opts()函数添加标题为"增长趋势的比较"
+line.set_global_opts(
+        title_opts=opts.TitleOpts(title="增长趋势的比较"),
+    )
+# 使用render()函数将图表保存至路径r"D:\tools\Programming\VSCODE\html_draft\line2.html"
+line.render(r"D:\tools\Programming\VSCODE\html_draft\line2.html")
