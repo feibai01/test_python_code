@@ -1,0 +1,42 @@
+# TODO 从pyecharts.charts中导入Bar,Timeline
+from pyecharts.charts import Timeline,Bar
+# 从pyecharts中导入options简写为opts
+from pyecharts import options as opts
+
+month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
+sale_2017 = [250,310,400,400,260,160,120,280,190,120,130,120]
+sale_2018 = [150,340,300,500,720,600,150,230,110,170,120,200]
+sale_2019 = [280,320,600,420,200,190,120,160,120,150,110,110]
+sale_2020 = [220,370,800,400,220,150,130,260,130,130,110,190]
+
+# 创建Bar对象赋值给bar1
+# 设置图表主题为light，宽度为1000px，高度为400px
+# 使用add()函数添加x轴数据为month
+# 使用add()函数添加y轴图例为"销售额"，数据为sale_2018
+bar1 = Bar(init_opts=opts.InitOpts(theme="dark", width='900px', height='400px'))
+bar1.add_xaxis(xaxis_data = month)
+bar1.add_yaxis(series_name="销售额",y_axis = sale_2018)
+# 创建Bar对象赋值给bar2
+# 设置图表主题为light，宽度为1000px，高度为400px
+# 使用add()函数添加x轴数据为month
+# 使用add()函数添加y轴图例为"销售额"，数据为sale_2018
+bar2 = Bar(init_opts=opts.InitOpts(theme="dark", width='900px', height='400px'))
+bar2.add_xaxis(xaxis_data = month)
+bar2.add_yaxis(series_name="销售额",y_axis = sale_2019)
+# 创建Bar对象赋值给bar3
+# 设置图表主题为light，宽度为1000px，高度为400px
+# 使用add()函数添加x轴数据为month
+# 使用add()函数添加y轴图例为"销售额"，数据为sale_2018
+bar3 = Bar(init_opts=opts.InitOpts(theme="dark", width='900px', height='400px'))
+bar3.add_xaxis(xaxis_data = month)
+bar3.add_yaxis(series_name="销售额",y_axis = sale_2020)
+# TODO 创建Timeline对象赋值给tl
+tl=Timeline()
+# TODO 使用add()函数添加柱状图bar1,bar2,bar3，时间点为"2018"，"2019"，"2020"
+tl.add(bar1,"2018")
+tl.add(bar2,"2019")
+tl.add(bar3,"2020")
+
+# TODO 使用render()函数，将图表保存到指定路径r"D:\tools\Programming\VSCODE\html_draft\show.html"
+tl.render(r"D:\tools\Programming\VSCODE\html_draft\show.html")
