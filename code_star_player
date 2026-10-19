@@ -1,0 +1,68 @@
+# 从pyecharts导入options,简称为opts
+from pyecharts import options as opts
+# 使用from...import从pyecharts.charts导入Radar
+from pyecharts.charts import Radar
+
+# 构造二维列表C·罗纳尔多的数据，并赋值给cl
+cl = [[83, 92, 87, 49, 89, 86]]
+# 构造二维列表梅西的数据，并赋值给mx
+mx = [[88, 95, 66, 43, 86, 96]]
+# 构造二维列表苏亚雷斯的数据
+sy = [[80, 92, 87, 58, 78, 81]]
+# 构造二维列表莱万多夫斯基的数据
+lw = [[79, 92, 84, 53, 81, 87]]
+# 构造二维列表格列兹曼的数据
+gl = [[84, 87, 70, 54, 86, 89]]
+
+# 构造坐标轴对象c_schema
+c_schema = [
+    # TODO 以字典形式设置坐标轴名称"传球"和最大值100
+    {"name": "传球", "max": 100},
+    # 以字典形式设置坐标轴名称"射门"和最大值100
+    {"name": "射门", "max": 100},
+    # 以字典形式设置坐标轴名称"体力"和最大值100
+    {"name": "体力", "max": 100},
+    # 以字典形式设置坐标轴名称"防守"和最大值100
+    {"name": "防守", "max": 100},
+    # 以字典形式设置坐标轴名称"速度"和最大值100
+    {"name": "速度", "max": 100},
+    # 以字典形式设置坐标轴名称"盘带"和最大值100
+    {"name": "盘带", "max": 100},
+]
+
+# TODO 调用Radar()函数生成雷达图对象radar
+# 添加参数init_opts，设置标签配置项opts.InitOpts()，传入宽width = "1000px", 高height = "600px",背景色bg_color = "#dcdcdc"
+radar=Radar(init_opts=opts.InitOpts(width="1000px",height="600px",bg_color="#dcdcdc"))
+
+# 在radar中使用add_schema()函数添加schema，设置坐标轴c_schema
+# TODO 添加splitarea_opt，设置分隔区域的样式配置项为opts.SplitAreaOpts，传入is_show = True
+# TODO 添加areastyle_opts，设置区域填充样式配置项为opts.AreaStyleOpts，传入默认颜色的透明度为opacity = 1
+radar.add_schema(schema = c_schema,splitarea_opt=opts.SplitAreaOpts(is_show=True,areastyle_opts=opts.AreaStyleOpts(opacity=1)))
+
+     
+# TODO 在radar中使用add()函数添加系列名称"C·罗纳尔多"、系列数据项cl和系列标签颜色color = "#6495ed"
+# 添加label_opts，设置标签配置项为opts.LabelOpts，传入is_show = False
+radar.add("C·罗纳尔多",cl,color="#6495ed",label_opts=opts.LabelOpts(is_show=False))
+
+# TODO 在radar中使用add()函数添加系列名称"梅西"、系列数据项 mx和系列标签颜色color = "#ff8c00"
+# 添加label_opts，设置标签配置项为opts.LabelOpts，传入is_show = False
+radar.add("梅西",mx,color="#ff8c00",label_opts=opts.LabelOpts(is_show=False))
+
+# 在radar中使用add()函数添加系列名称"苏亚雷斯"、系列数据项sy和系列标签颜色color = "#00ff00"
+# 添加label_opts，设置标签配置项为opts.LabelOpts，传入is_show = False
+radar.add("苏亚雷斯", sy, color = "#00ff00",label_opts = opts.LabelOpts(is_show = False))
+
+# 在radar中使用add()函数添加系列名称"莱万多夫斯基"、系列数据项lw和系列标签颜色color = "#a0522d"
+# 添加label_opts，设置标签配置项为opts.LabelOpts，传入is_show = False
+radar.add("莱万多夫斯基", lw, color = "#a0522d",label_opts = opts.LabelOpts(is_show = False))
+
+# 在radar中使用add()函数添加系列名称"格列兹曼"、系列数据项gl和系列标签颜色color = "#da70d6"
+# 添加label_opts，设置标签配置项为opts.LabelOpts，传入is_show = False
+radar.add("格列兹曼", gl, color = "#da70d6",label_opts = opts.LabelOpts(is_show = False))
+
+# 使用set_global_opts()设置全局配置
+# 添加title_opts，设置标题配置项为opts.TitleOpts，传入title = "球员表现"
+radar.set_global_opts(title_opts = opts.TitleOpts(title = "球员表现"))
+
+# 使用render()函数生成雷达图，存到路径r"D:\tools\Programming\VSCODE\html_draft\radar-player.html
+radar.render(r"D:\tools\Programming\VSCODE\html_draft\radar-player.html")
